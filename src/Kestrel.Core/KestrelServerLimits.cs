@@ -10,6 +10,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Core
 {
     public class KestrelServerLimits
     {
+        //匹配1.0.0中Kestrel的不可配置默认响应缓冲区大小
         // Matches the non-configurable default response buffer size for Kestrel in 1.0.0
         private long? _maxResponseBufferSize = 64 * 1024;
 

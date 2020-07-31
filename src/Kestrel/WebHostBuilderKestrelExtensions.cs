@@ -16,6 +16,7 @@ namespace Microsoft.AspNetCore.Hosting
     public static class WebHostBuilderKestrelExtensions
     {
         /// <summary>
+        /// 将Kestrel指定为web主机要使用的服务器。
         /// Specify Kestrel as the server to be used by the web host.
         /// </summary>
         /// <param name="hostBuilder">
