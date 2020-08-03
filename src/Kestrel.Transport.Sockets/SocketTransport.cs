@@ -80,6 +80,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets
             IPEndPoint endPoint = _endPointInformation.IPEndPoint;
 
             var listenSocket = new Socket(endPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
+            //禁用句柄继承
             NativeMethods.DisableHandleInheritance(listenSocket);
 
             // Kestrel expects IPv6Any to bind to both IPv6 and IPv4

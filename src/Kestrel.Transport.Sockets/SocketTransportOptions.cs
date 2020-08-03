@@ -7,9 +7,13 @@ using Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.Internal;
 
 namespace Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets
 {
+    /// <summary>
+    /// 设置io队列数
+    /// </summary>
     public class SocketTransportOptions
     {
         /// <summary>
+        /// 用于处理请求的I / O队列数。 设置为0可以直接将I / O调度到ThreadPool。
         /// The number of I/O queues used to process requests. Set to 0 to directly schedule I/O to the ThreadPool.
         /// </summary>
         /// <remarks>

@@ -39,6 +39,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.Internal
 
             _awaitableEventArgs.BufferList = GetBufferList(buffers);
 
+            //操作完成后，将引发e参数上的System.Net.Sockets.SocketAsyncEventArgs.Completed事件。 如果I / O操作同步完成，则返回false。 在这种情况下，不会引发e参数上的System.Net.Sockets.SocketAsyncEventArgs.Completed事件，并且在方法调用返回以检索操作结果后，可以立即检查作为参数传递的e对象。
             if (!_socket.SendAsync(_awaitableEventArgs))
             {
                 _awaitableEventArgs.Complete();

@@ -17,6 +17,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv.Internal
 {
     public class LibuvThread : PipeScheduler
     {
+        // 交换工作队列并在一次通过中处理的最大时间，因为完成一项任务可能会立即将写入数据放入网络，否则需要等到libuv循环的下一次通过
         // maximum times the work queues swapped and are processed in a single pass
         // as completing a task may immediately have write data to put on the network
         // otherwise it needs to wait till the next pass of the libuv loop
@@ -179,6 +180,7 @@ namespace Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv.Internal
 
         public void Post<T>(Action<T> callback, T state)
         {
+            // 句柄已关闭，因此无需调度任何内容
             // Handle is closed to don't bother scheduling anything
             if (_post.IsClosed)
             {
